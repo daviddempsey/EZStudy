@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import "./App.css";
 import AddFile from "./addFilesButton";
 
 function App() {
-  const 
   return (
-    <div className="app">
+    <div id="parent">
       <h1>Welcome to Study Guide Maker</h1>
-      <AddFile />
+      <div className="sidebar"></div>
+      <div className="addbutton">
+        <AddFile />
+      </div>
     </div>
   );
 }
