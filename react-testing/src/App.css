@@ -1,0 +1,14 @@
+.app {
+  background-color: lightblue;
+  border: 2px solid rgb(152, 213, 233);
+  min-height: 500vh;
+}
+.addfile {
+  font-family: Helvetica, sans-serif;
+  color: black;
+  min-height: 400px;
+  width: 1000px;
+  border: 2px solid rgb(111, 203, 240);
+  background: skyblue;
+  border-radius: 30px;
+}
