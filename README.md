@@ -1,66 +1,41 @@
-## Available Scripts
+# EZStudy
 
-In the project directory, you can run:
+A web app that helps students find resources to study from based off of their notes.
 
-### `npm start`
+## Main Idea
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A student can upload a document of their notes to the website and the website will return study documents that the student can download.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Tools Utilized
 
-### `npm test`
+* Frontend:
+  - React.js
+  - HTML
+  - CSS
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Backend:
+  - Node.js
+  - Express
+  - MongoDB
+  - Amazon S3
+  - Amazon Textract
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### How to use
+1. Git clone the repository
+1. Install Node.js
+2. cd into the repository
+3. Run 'npm install' to ensure that all packages are installed.
+4. Run 'npm start'
+5. Open up http://localhost:3000
+6. Upload a file
+7. Wait for file to process then download matching documents!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Contributors
+David Dempsey - ddempsey@ucsd.edu
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Renaldy Herlim - rherlim@ucsd.edu
 
-### `npm run eject`
+Amjad Al-Omar - aalomar@ucsd.edu
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Rakesh Senthil - rsenthil@ucsd.edu
