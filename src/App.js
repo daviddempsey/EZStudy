@@ -3,11 +3,25 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import logo from "./logo.jpg";
+import { tsConstructorType } from "@babel/types";
 
 console.log(logo);
 
 function refreshPage() {
   window.location.reload();
+}
+
+const ProgressBar = (props) => {
+  return (
+    <div className="progress-bar">
+        <Filler percentage={props.percentage} />
+    </div>
+  )
+
+}
+
+const Filler = (props) => {
+  return <div className="filler" style={{width: ${props.percentage}% }} />
 }
 
 class App extends Component {
@@ -16,8 +30,15 @@ class App extends Component {
     this.state = {
       link: [],
       success: false,
-      url: ""
+      url: "", 
+      percentage: 0 
     };
+    this.nextStep = this.nextStep.bind(this)
+  }
+
+  nextStep() {
+    if(this.state.percentage === 100) return 
+    this.setState(prevState => ({ percentage: prevState.percentage + 100 }))
   }
 
   handleChange = ev => {
@@ -40,37 +61,6 @@ class App extends Component {
     let fileName = fileParts[0];
     let fileType = fileParts[1];
     console.log("Preparing the upload");
-    axios
-      .post("http://localhost:3001/sign_s3", {
-        fileName: fileName,
-        fileType: fileType
-      })
-      .then(response => {
-        var returnData = response.data.data.returnData;
-        var signedRequest = returnData.signedRequest;
-        var url = returnData.url;
-        this.setState({ url: url });
-        console.log("Recieved a signed request " + signedRequest);
-
-        // Put the fileType in the headers for the upload
-        var options = {
-          headers: {
-            "Content-Type": fileType
-          }
-        };
-        axios
-          .put(signedRequest, file, options)
-          .then(result => {
-            console.log("Response from s3");
-            this.setState({ success: true });
-          })
-          .catch(error => {
-            alert("ERROR " + JSON.stringify(error));
-          });
-      })
-      .catch(error => {
-        alert(JSON.stringify(error));
-      });
   };
 
   render() {
@@ -93,8 +83,8 @@ class App extends Component {
             <h1 className="header">Online Study Guide Creator</h1>
             <h2 className="subhead">Create Your Study Guide!</h2>
             {this.state.success ? <Success_message /> : null}
-            <label class="custom-file-upload">
-              Choose File
+            {/* <label class="custom-file-upload"> */}
+              {/* Choose File */}
               <input
                 className="button1"
                 onChange={this.handleChange}
@@ -103,14 +93,17 @@ class App extends Component {
                 }}
                 type="file"
               />
-            </label>
+            {/* </label> */}
             <h2> </h2>
 
             <br />
-            <button className="button2" onClick={this.handleUpload}>
-              UPLOAD
-            </button>
-            <span></span>
+            <div>
+            <button className="button2" onClick={this.nextStep}>UPLOAD</button>
+            </div>
+            <div>
+              <ProgressBar percentage={this.state.percentage} />
+            </div>
+
             <div className="steps">
               <section className="steps-container">
                 <h1 className="how-to">How to create your Study Guide</h1>
@@ -136,16 +129,26 @@ class App extends Component {
                 value="Study Guide"
                 onClick={this.testStuff}
               >
-                Click HERE for your Study Guide!
+                Click HERE for your Study Materials!
               </button>
+              <h1> </h1>
               {this.state.link.map(link => {
                 return (
-                  <a
+                  <div className="outputs"> 
+                    <a
+                      href="https://ezstudy-inputs.s3-us-west-1.amazonaws.com/Uploaded+Notes/The+Allied+Powers+(1).pdf"
+                      className="links"
+                    >
+                      Study Guide
+                    </a>
+
+                    {/* <a
                     href="https://ezstudy-inputs.s3-us-west-1.amazonaws.com/Uploaded+Notes/The+Allied+Powers+(1).pdf"
                     className="links"
-                  >
-                    Study Guide
-                  </a>
+                    >
+                    Wikipedia Link
+                  </a> */}
+                  </div>
                 );
               })}
             </div>

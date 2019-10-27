@@ -1,10 +1,11 @@
 .parent {
   background-image: linear-gradient(
-    to bottom right,
-    #9795f0 30%,
-    rgb(23, 185, 172) 120%
+    to top,
+    #74e6c0 10%,
+    #9795f0 50%,
+    rgb(20, 187, 173) 100%
   );
-  min-height: 300vh;
+  min-height: 200vh;
 }
 
 .top {
@@ -31,12 +32,28 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 450px;
-  height: 80px;
+  width: 470px;
+  height: 90px;
+}
+
+.progress-bar {
+  position: relative;
+  top: 20px;
+  height: 20px;
+  width: 350px;
+  border-radius: 50px;
+  border: 2px solid rgb(104, 101, 101) 33;
+}
+
+.filler {
+  background: rgb(83, 82, 82);
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease-in;
 }
 
 input[type="file"] {
-  display: none;
+  display: block;
 }
 .custom-file-upload {
   background-color: rgb(23, 185, 172);
@@ -113,6 +130,7 @@ input[type="file"] {
 
 .header {
   font-size: 40px;
+  text-decoration: underline;
 }
 
 .subhead {
@@ -128,12 +146,16 @@ input[type="file"] {
   top: 40px;
 }
 
+.flex-container {
+  align-content: center;
+}
+
 .button2 {
   background-color: rgb(23, 185, 172);
   border: none;
   border-radius: 30px;
   color: rgb(0, 0, 0);
-  padding: 28px 48px;
+  padding: 28px 160px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -141,7 +163,6 @@ input[type="file"] {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 24px;
-  width: 20%;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   -webkit-transition-duration: 0.4s;
@@ -164,6 +185,7 @@ input[type="file"] {
 }
 .descrips {
   font-size: 15pt;
+  border: 2pt black;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -197,6 +219,7 @@ input[type="file"] {
 
 .descriptions {
   float: left;
+  border: 2pt black;
   display: block;
   margin: 2em 2em;
   text-align: center;
@@ -226,7 +249,7 @@ input[type="file"] {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   position: relative;
-  top: 100px;
+  top: 30px;
 }
 
 .guide:hover {
@@ -240,8 +263,32 @@ input[type="file"] {
   transform: translateY(4px);
 }
 
+.links::before {
+  display: block;
+  border: 2pt solid black;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100;
+  font-weight: bold;
+  color: blue;
+  border-radius: 2em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  padding: 0;
+  line-height: 200%;
+  margin-bottom: 1ex;
+}
+
 .links {
   position: relative;
-  top: 200px;
-  font-size: 16px;
+  top: 100px;
+  float: center;
+  display: block;
+  margin: 2em 2em;
+  text-align: center;
+  font-size: 35pt;
+  font-weight: bold;
+  max-width: 18em;
+  color: blue;
 }
