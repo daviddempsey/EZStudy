@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+// import {Link} from 'react-router';
 import axios from "axios";
 import "./App.css";
 import logo from "./logo.jpg";
 
 console.log(logo);
+
+function refreshPage() {
+  window.location.reload();
+}
 
 class App extends Component {
   constructor(props) {
@@ -71,23 +76,25 @@ class App extends Component {
         <div className="App">
           <center>
             <div className="top">
-              <img className="logo" src={logo} alt="logo" />
-
-              {/* <button class="buttons">Sign Up</button>
-              <button class="buttons">Log In</button> */}
+              <button className="imgbutton" type="button" onClick={refreshPage}>
+                <img className="logo" src={logo} alt="logo" />
+              </button>
             </div>
-            <h1 className="header">Create Your Study Guide</h1>
-            <h2 className="subhead">Upload a File</h2>
+            <h1 className="header">Online Study Guide Creator</h1>
+            <h2 className="subhead">Create Your Study Guide!</h2>
             {this.state.success ? <Success_message /> : null}
-            <input
-              className="button1"
-              onChange={this.handleChange}
-              ref={ref => {
-                this.uploadInput = ref;
-              }}
-              type="file"
-            />
-            <h2></h2>
+            <label class="custom-file-upload">
+              Choose File
+              <input
+                className="button1"
+                onChange={this.handleChange}
+                ref={ref => {
+                  this.uploadInput = ref;
+                }}
+                type="file"
+              />
+            </label>
+            <h2> </h2>
 
             <br />
             <button className="button2" onClick={this.handleUpload}>
@@ -96,7 +103,7 @@ class App extends Component {
             <span></span>
             <div className="steps">
               <section className="steps-container">
-                <h1>How to create your Study Guide</h1>
+                <h1 className="how-to">How to create your Study Guide</h1>
                 <ol className="descrips">
                   <li className="descriptions">
                     Select the "Choose File" button.
@@ -114,6 +121,9 @@ class App extends Component {
                   </li>
                 </ol>
               </section>
+              <button className="guide" value="Study Guide">
+                Click HERE for your Study Guide!
+              </button>
             </div>
           </center>
         </div>
