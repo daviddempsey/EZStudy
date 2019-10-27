@@ -14,14 +14,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      link: [],
       success: false,
       url: ""
     };
   }
 
   handleChange = ev => {
-    this.setState({ success: false, url: "" });
+    this.setState({ link: this.state.link, success: false, url: "" });
   };
+
+  testStuff = () => {
+    const newLink = this.state.link;
+    newLink.push(
+      "https://www.https://ezstudy-inputs.s3-us-west-1.amazonaws.com/Uploaded+Notes/The+Allied+Powers+(1).pdf.com"
+    );
+    this.setState({ link: newLink, success: false, url: "" });
+  };
+
   // Perform the upload
   handleUpload = ev => {
     let file = this.uploadInput.files[0];
@@ -121,9 +131,23 @@ class App extends Component {
                   </li>
                 </ol>
               </section>
-              <button className="guide" value="Study Guide">
+              <button
+                className="guide"
+                value="Study Guide"
+                onClick={this.testStuff}
+              >
                 Click HERE for your Study Guide!
               </button>
+              {this.state.link.map(link => {
+                return (
+                  <a
+                    href="https://ezstudy-inputs.s3-us-west-1.amazonaws.com/Uploaded+Notes/The+Allied+Powers+(1).pdf"
+                    className="links"
+                  >
+                    Study Guide
+                  </a>
+                );
+              })}
             </div>
           </center>
         </div>

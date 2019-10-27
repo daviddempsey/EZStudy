@@ -239,3 +239,9 @@ input[type="file"] {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.links {
+  position: relative;
+  top: 200px;
+  font-size: 16px;
+}
