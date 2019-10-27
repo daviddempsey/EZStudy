@@ -11,18 +11,17 @@ function refreshPage() {
   window.location.reload();
 }
 
-const ProgressBar = (props) => {
+const ProgressBar = props => {
   return (
     <div className="progress-bar">
-        <Filler percentage={props.percentage} />
+      <Filler percentage={props.percentage} />
     </div>
-  )
+  );
+};
 
-}
-
-const Filler = (props) => {
-  return <div className="filler" style={{width: ${props.percentage}% }} />
-}
+const Filler = props => {
+  return <div className="filler" style={{ width: `${props.percentage}%` }} />;
+};
 
 class App extends Component {
   constructor(props) {
@@ -30,15 +29,15 @@ class App extends Component {
     this.state = {
       link: [],
       success: false,
-      url: "", 
-      percentage: 0 
+      url: "",
+      percentage: 0
     };
-    this.nextStep = this.nextStep.bind(this)
+    this.nextStep = this.nextStep.bind(this);
   }
 
   nextStep() {
-    if(this.state.percentage === 100) return 
-    this.setState(prevState => ({ percentage: prevState.percentage + 100 }))
+    if (this.state.percentage === 100) return;
+    this.setState(prevState => ({ percentage: prevState.percentage + 100 }));
   }
 
   handleChange = ev => {
@@ -84,21 +83,23 @@ class App extends Component {
             <h2 className="subhead">Create Your Study Guide!</h2>
             {this.state.success ? <Success_message /> : null}
             {/* <label class="custom-file-upload"> */}
-              {/* Choose File */}
-              <input
-                className="button1"
-                onChange={this.handleChange}
-                ref={ref => {
-                  this.uploadInput = ref;
-                }}
-                type="file"
-              />
+            {/* Choose File */}
+            <input
+              className="button1"
+              onChange={this.handleChange}
+              ref={ref => {
+                this.uploadInput = ref;
+              }}
+              type="file"
+            />
             {/* </label> */}
             <h2> </h2>
 
             <br />
             <div>
-            <button className="button2" onClick={this.nextStep}>UPLOAD</button>
+              <button className="button2" onClick={this.nextStep}>
+                UPLOAD
+              </button>
             </div>
             <div>
               <ProgressBar percentage={this.state.percentage} />
@@ -134,7 +135,7 @@ class App extends Component {
               <h1> </h1>
               {this.state.link.map(link => {
                 return (
-                  <div className="outputs"> 
+                  <div className="outputs">
                     <a
                       href="https://ezstudy-inputs.s3-us-west-1.amazonaws.com/Uploaded+Notes/The+Allied+Powers+(1).pdf"
                       className="links"
