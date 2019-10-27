@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./App.css";
+import logo from "./logo.jpg";
+
+console.log(logo);
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -62,22 +67,56 @@ class App extends Component {
       </div>
     );
     return (
-      <div className="App">
-        <center>
-          <h1>UPLOAD A FILE</h1>
-          {this.state.success ? <Success_message /> : null}
-          <input
-            onChange={this.handleChange}
-            ref={ref => {
-              this.uploadInput = ref;
-            }}
-            type="file"
-          />
-          <br />
-          <button className="button" onClick={this.handleUpload}>
-            UPLOAD
-          </button>
-        </center>
+      <div className="parent">
+        <div className="App">
+          <center>
+            <div className="top">
+              <img className="logo" src={logo} alt="logo" />
+
+              {/* <button class="buttons">Sign Up</button>
+              <button class="buttons">Log In</button> */}
+            </div>
+            <h1 className="header">Create Your Study Guide</h1>
+            <h2 className="subhead">Upload a File</h2>
+            {this.state.success ? <Success_message /> : null}
+            <input
+              className="button1"
+              onChange={this.handleChange}
+              ref={ref => {
+                this.uploadInput = ref;
+              }}
+              type="file"
+            />
+            <h2></h2>
+
+            <br />
+            <button className="button2" onClick={this.handleUpload}>
+              UPLOAD
+            </button>
+            <span></span>
+            <div className="steps">
+              <section className="steps-container">
+                <h1>How to create your Study Guide</h1>
+                <ol className="descrips">
+                  <li className="descriptions">
+                    Select the "Choose File" button.
+                  </li>
+                  <li className="descriptions">
+                    Select the Word, Excel, PowerPoint, PDF or other file you
+                    wish to convert.
+                  </li>
+                  <li className="descriptions">
+                    Our converter will convert your PDF into a Study Guide ready
+                    for download!
+                  </li>
+                  <li className="descriptions">
+                    Save that file and get your study on!
+                  </li>
+                </ol>
+              </section>
+            </div>
+          </center>
+        </div>
       </div>
     );
   }
